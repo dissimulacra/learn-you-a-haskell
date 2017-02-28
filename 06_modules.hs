@@ -3,6 +3,9 @@ import Data.Char
 import qualified Data.Map as Map
 import qualified Data.Set as Set
 import Geometry
+import qualified Geometry.Sphere as Sphere
+import qualified Geometry.Cuboid as Cuboid
+import qualified Geometry.Cube as Cube
 
 numUniques :: (Eq a) => [a] -> Int
 numUniques = length . nub
