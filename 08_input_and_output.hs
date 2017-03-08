@@ -75,13 +75,48 @@ import Control.Monad
 --    rs <- sequence [getLine, getLine, getLine]
 --    print rs
 
+--main = do
+--    colors <- forM [1,2,3,4] (\a -> do
+--        putStrLn $ "Which color do you associate with the number " ++ show a ++ "?"
+--        color <- getLine
+--        return color)
+--    putStrLn "The colors that you associate with 1, 2, 3, and 4 are: "
+--    mapM putStrLn colors
+
+--main = do --forever $ do
+--    --putStr "Give me some input: "
+--    --l <- getLine
+--    --putStrLn $ map toUpper l
+--    contents <- getContents
+--    --putStr (map toUpper contents)
+--    putStr (shortLinesOnly contents)
+
+--main = interact shortLinesOnly
+
+--shortLinesOnly :: String -> String
+--shortLinesOnly input =
+--    let allLines = lines input
+--        shortLines = filter (\line -> length line < 10) allLines
+--        result = unlines shortLines
+--    in  result
+
+--main = interact $ unlines . filter ((<10) . length) . lines
+
+--respondPalindromes = unlines . map (\xs -> if isPalindrome xs then "palindrome" else "not a palindrome") . lines
+--    where            isPalindrome xs = xs == reverse xs
+
+--main = interact respondPalindromes
+
+import System.IO
+
 main = do
-    colors <- forM [1,2,3,4] (\a -> do
-        putStrLn $ "Which color do you associate with the number " ++ show a ++ "?"
-        color <- getLine
-        return color)
-    putStrLn "The colors that you associate with 1, 2, 3, and 4 are: "
-    mapM putStrLn colors
+    handle <- openFile "girlfriend.txt" ReadMode
+    contents <- hGetContents handle
+    putStr contents
+    hClose handle
+
+
+
 
 
 
