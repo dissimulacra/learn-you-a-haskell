@@ -137,6 +137,8 @@ main = do
     todoItem <- getLine
     appendFile "todo.txt" (todoItem ++ "\n")
 
+----checkpoint: "end of each line because getLine doesn't give us a newline character at the end"
+
 
 
 
